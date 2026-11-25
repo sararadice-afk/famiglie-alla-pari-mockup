@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Famiglie alla pari – Enti e attività dei comuni dell’Ambito (mockup)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="vendor/markercluster/MarkerCluster.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="titolo">Enti e attività dei comuni dell’Ambito</h1>
+
+    <div class="riga-ricerca">
+      <label class="ricerca">
+        <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="text" placeholder="Cerca un ente, un’attività, un evento…" autocomplete="off">
+        <button class="svuota" type="button" aria-label="Svuota ricerca">✕</button>
+      </label>
+      <div class="seg" id="viste">
+        <button data-vista="mappa" class="on">Mappa</button>
+        <button data-vista="elenco">Elenco</button>
+        <button data-vista="calendario">Calendario</button>
+      </div>
+    </div>
+
+    <div class="filtri">
+      <span class="lab">Filtra per</span>
+      <div class="dd" id="dd-per"><button id="b-per" type="button"><span>Pensato per</span><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="menu" id="menu-per"></div></div>
+      <div class="dd" id="dd-comune"><button id="b-comune" type="button"><span>Comune</span><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="menu" id="menu-comune"></div></div>
+      <div class="dd" id="dd-tipo"><button id="b-tipo" type="button"><span>Tipo di ente</span><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="menu" id="menu-tipo"></div></div>
+      <div class="seg piccolo" id="durata">
+        <button data-durata="Tutte" class="on">Tutte</button>
+        <button data-durata="Continuativa">Continuative</button>
+        <button data-durata="Evento">Eventi</button>
+      </div>
+      <button class="toggle" id="t-gratuito" type="button"><span class="sw"></span>Gratuito</button>
+      <button class="toggle" id="t-scuole" type="button"><span class="sw"></span>Per le scuole</button>
+    </div>
+
+    <div class="chips" id="chips"></div>
+
+    <div id="contenuto"></div>
+
+    <p class="nota-mockup">Mockup di lavoro con i dati di prova delle schede compilate al primo workshop e gli enti del file «Aggiornamento Dati_2025» (per questi ultimi testi e contatti sono segnaposto). Le posizioni sulla mappa sono quelle degli indirizzi (OpenStreetMap), o vicino al municipio quando l’indirizzo non è stato trovato; i quattro eventi del prossimo fine settimana sono inventati, le date di giugno 2027, il badge «Gratuito» di Casalulé, i testi «perché in questa categoria» e gli enti in «Collabora con» sono esempi.</p>
+  </main>
+
+  <div class="velo" id="velo"><div class="modale" id="modale" role="dialog" aria-modal="true"></div></div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="vendor/markercluster/leaflet.markercluster.js"></script>
+  <script src="icons.js"></script>
+  <script src="data.js"></script>
+  <script src="data-territorio.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
